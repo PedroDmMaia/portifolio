@@ -1,22 +1,22 @@
-import { motion } from 'motion/react'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
-import { toast } from 'sonner'
+import { motion } from "motion/react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { toast } from "sonner";
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
-  email: z.string().email('Email inválido'),
-  message: z.string().min(10, 'Mensagem deve ter pelo menos 10 caracteres'),
-})
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+});
 
-type ContactFormData = z.infer<typeof contactSchema>
+type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
@@ -25,42 +25,42 @@ export default function Contact() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-  })
+  });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true)
+  const onSubmit = async () => {
+    setIsSubmitting(true);
     try {
       // Simular envio (você pode integrar com um serviço de email como EmailJS, Formspree, etc.)
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      toast.success('Mensagem enviada com sucesso!')
-      reset()
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      toast.success("Mensagem enviada com sucesso!");
+      reset();
     } catch (error) {
-      toast.error('Erro ao enviar mensagem. Tente novamente.')
+      toast.error("Erro ao enviar mensagem. Tente novamente.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const contactInfo = [
     {
       icon: HiMail,
-      label: 'Email',
-      value: 'pedrodelmonico@hotmail.com',
-      href: 'mailto:pedrodelmonico@hotmail.com',
+      label: "Email",
+      value: "pedrodelmonico@hotmail.com",
+      href: "mailto:pedrodelmonico@hotmail.com",
     },
     {
       icon: HiPhone,
-      label: 'Telefone',
-      value: '(11) 98805-0110',
-      href: 'tel:+5511988050110',
+      label: "Telefone",
+      value: "(11) 98805-0110",
+      href: "tel:+5511988050110",
     },
     {
       icon: HiLocationMarker,
-      label: 'Localização',
-      value: 'São Paulo, SP',
-      href: '#',
+      label: "Localização",
+      value: "São Paulo, SP",
+      href: "#",
     },
-  ]
+  ];
 
   return (
     <section id="contact" className="py-20 lg:py-32">
@@ -68,7 +68,7 @@ export default function Contact() {
         <motion.h2
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-5xl font-display font-bold text-center mb-4"
         >
@@ -77,7 +77,7 @@ export default function Contact() {
         <motion.p
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center text-neutral-400 mb-16 max-w-2xl mx-auto"
         >
@@ -99,7 +99,7 @@ export default function Contact() {
               </h3>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => {
-                  const Icon = info.icon
+                  const Icon = info.icon;
                   return (
                     <motion.a
                       key={index}
@@ -114,11 +114,15 @@ export default function Contact() {
                         <Icon className="text-xl text-white" />
                       </div>
                       <div>
-                        <div className="text-sm text-neutral-400">{info.label}</div>
-                        <div className="text-neutral-100 font-medium">{info.value}</div>
+                        <div className="text-sm text-neutral-400">
+                          {info.label}
+                        </div>
+                        <div className="text-neutral-100 font-medium">
+                          {info.value}
+                        </div>
                       </div>
                     </motion.a>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -130,11 +134,23 @@ export default function Contact() {
               </h3>
               <div className="flex gap-4">
                 {[
-                  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/pedrodmmaia/', label: 'LinkedIn' },
-                  { icon: FaGithub, href: 'https://github.com/PedroDmMaia', label: 'GitHub' },
-                  { icon: FaInstagram, href: 'https://www.instagram.com/pedroo._.maia/', label: 'Instagram' },
+                  {
+                    icon: FaLinkedin,
+                    href: "https://www.linkedin.com/in/pedrodmmaia/",
+                    label: "LinkedIn",
+                  },
+                  {
+                    icon: FaGithub,
+                    href: "https://github.com/PedroDmMaia",
+                    label: "GitHub",
+                  },
+                  {
+                    icon: FaInstagram,
+                    href: "https://www.instagram.com/pedroo._.maia/",
+                    label: "Instagram",
+                  },
                 ].map((social, index) => {
-                  const Icon = social.icon
+                  const Icon = social.icon;
                   return (
                     <motion.a
                       key={index}
@@ -152,7 +168,7 @@ export default function Contact() {
                     >
                       <Icon />
                     </motion.a>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -175,14 +191,16 @@ export default function Contact() {
                 Nome
               </label>
               <input
-                {...register('name')}
+                {...register("name")}
                 type="text"
                 id="name"
                 className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                 placeholder="Seu nome"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                <p className="mt-1 text-sm text-red-400">
+                  {errors.name.message}
+                </p>
               )}
             </div>
 
@@ -194,14 +212,16 @@ export default function Contact() {
                 Email
               </label>
               <input
-                {...register('email')}
+                {...register("email")}
                 type="email"
                 id="email"
                 className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                 placeholder="seu@email.com"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                <p className="mt-1 text-sm text-red-400">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -213,14 +233,16 @@ export default function Contact() {
                 Mensagem
               </label>
               <textarea
-                {...register('message')}
+                {...register("message")}
                 id="message"
                 rows={6}
                 className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all resize-none"
                 placeholder="Sua mensagem..."
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+                <p className="mt-1 text-sm text-red-400">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 
@@ -231,11 +253,11 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
               className="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
             </motion.button>
           </motion.form>
         </div>
       </div>
     </section>
-  )
+  );
 }
