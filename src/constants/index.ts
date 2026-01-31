@@ -1,11 +1,24 @@
 import project1 from '../assets/projects/project-1.jpg'
-import project2 from '../assets/projects/project-2.jpg'
+import project2 from '../assets/projects/project-2.png'
 import project3 from '../assets/projects/project-3.jpg'
 import project5 from '../assets/projects/project-5.png'
 
 export const experiences = [
   {
-    year: '02/2025 - momento',
+    year: '10/2025 - atual',
+    role: 'Desenvolvedor full stack',
+    company: 'Koru',
+    description:
+      'Como Desenvolvedor Full Stack, sou responsável pela manutenção e evolução de uma plataforma interna corporativa, atuando tanto no desenvolvimento de novas funcionalidades quanto na melhoria contínua do sistema. Busco garantir performance, segurança e escalabilidade, contribuindo para soluções estáveis, eficientes e alinhadas às necessidades do negócio e dos usuários.',
+    technologies: [
+      'Angular',
+      'Nestjs',
+      'Postgresql',
+      'Docker',
+    ],
+  },
+  {
+    year: '02/2025 - 10/2025',
     role: 'Desenvolvedor front end',
     company: 'Studio 9 SI',
     description:
@@ -19,14 +32,6 @@ export const experiences = [
       'Cypress',
       'Wordpress',
     ],
-  },
-  {
-    year: '06/2024 - momento',
-    role: 'Desenvolvedor Freelancer',
-    company: '',
-    description:
-      'Como desenvolvedor freelancer, tenho trabalhado em diversos projetos, oferecendo soluções personalizadas para clientes de diferentes setores. Minha principal missão é criar aplicações web completas, escaláveis e eficientes, utilizando as mais recentes tecnologias, como React, TypeScript, Node.js, Prisma, MySQL e PostgreSQL. Meu trabalho abrange desde o desenvolvimento de interfaces ricas e responsivas no front-end até a criação de APIs robustas e integração com bancos de dados no back-end.',
-    technologies: ['Reactjs', 'Nextjs', 'Nestjs', 'Nodejs', 'Prisma'],
   },
   {
     year: '05/2024 - 08/2024',
@@ -48,22 +53,17 @@ export const projects = [
     url: 'https://soutasolucoes.com',
   },
   {
-    title: 'Nunes-sport',
+    title: 'Predator Win',
     image: project2,
     description:
-      'Meu primeiro projeto fullstack, Nunes Sports, é uma aplicação focada na gestão de produtos esportivos. O sistema permite realizar todas as operações CRUD (Criar, Ler, Atualizar e Deletar) de forma eficiente e intuitiva. Desenvolvido com tecnologias modernas, é um exemplo do ciclo completo de desenvolvimento de software, integrando frontend, backend e banco de dados para oferecer uma solução funcional e escalável.',
+      'Projeto frontend desenvolvido para uma casa de apostas online, com o objetivo de proporcionar uma experiência de usuário(UX) intuitiva e agradável, utilizando tecnologias modernas e seguindo as melhores práticas de desenvolvimento.',
     technologies: [
       'ReactJs',
       'Tailwind',
       'radixUi',
-      'nodeJs',
-      'Prisma',
-      'Fastify',
-      'postgresql',
-      'docker',
     ],
-    github: 'https://github.com/PedroDmMaia/nunes-frontend',
-    url: 'https://lightgrey-dog-921641.hostingersite.com/',
+    github: 'https://github.com/PedroDmMaia/predator',
+    url: 'https://predator-khaki.vercel.app/',
   },
   {
     title: 'Sl Start Up',

@@ -56,7 +56,7 @@ export default function Hero() {
           >
             Transformando ideias em soluções digitais inovadoras. Especializado em
             criar aplicações web modernas, escaláveis e de alta performance com
-            React, TypeScript, Node.js e as mais recentes tecnologias.
+            React, Angular, Node.js e as mais recentes tecnologias.
           </motion.p>
 
           {/* CTA Buttons */}

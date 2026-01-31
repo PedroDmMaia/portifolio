@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 
 export default function About() {
   const stats = [
-    { label: 'Anos de Experiência', value: '1+' },
+    { label: 'Anos de Experiência', value: '2+' },
     { label: 'Projetos Concluídos', value: '10+' },
     { label: 'Tecnologias Dominadas', value: '15+' },
     { label: 'Clientes Satisfeitos', value: '5+' },
